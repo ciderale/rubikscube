@@ -1,0 +1,36 @@
+\begin{tikzpicture}[z={(0.5cm,0.5cm)}]
+  \cubeCanvas
+%%%% BOTTOM
+\drawcubicle[X]{(0,0,2)}{inner}{inner}{inner} % 1
+\drawcubicle[X]{(1,0,2)}{inner}{inner}{inner} %   2
+\drawcubicle[X]{(2,0,2)}{inner}{inner}{right} %     3
+\drawcubicle[X]{(0,0,1)}{inner}{inner}{inner} % 4
+\drawcubicle[X]{(1,0,1)}{inner}{inner}{inner} %   5
+\drawcubicle[X]{(2,0,1)}{inner}{inner}{right} %     6
+\drawcubicle[X]{(0,0,0)}{front}{inner}{inner} % 7
+\drawcubicle[X]{(1,0,0)}{front}{inner}{inner} %   8
+\drawcubicle[_]{(2,0,0)}{front}{inner}{right} %     9
+%%
+%%%% MIDDLE
+\drawcubicle[_]{(0,1,2)}{inner}{inner}{inner} % 1
+\drawcubicle[X]{(1,1,2)}{inner}{inner}{inner} %   2
+\drawcubicle[_]{(2,1,2)}{inner}{inner}{right} %     3
+\drawcubicle[X]{(0,1,1)}{inner}{inner}{inner} % 4
+\drawcubicle[X]{(1,1,1)}{inner}{inner}{inner} %   5
+\drawcubicle[X]{(2,1,1)}{inner}{inner}{right} %     6
+\drawcubicle[_]{(0,1,0)}{front}{inner}{inner} % 7
+\drawcubicle[X]{(1,1,0)}{front}{inner}{inner} %   8
+\drawcubicle[_]{(2,1,0)}{front}{inner}{right} %     9
+%%
+%%%% TOP
+\drawcubicle[_]{(0,2,2)}{inner}{top}{inner} % 1
+\drawcubicle[_]{(1,2,2)}{inner}{top}{inner} %   2
+\drawcubicle[_]{(2,2,2)}{inner}{top}{right} %     3
+\drawcubicle[_]{(0,2,1)}{inner}{top}{inner} % 4
+\drawcubicle[X]{(1,2,1)}{inner}{top}{inner} %   5
+\drawcubicle[_]{(2,2,1)}{inner}{top}{right} %     6
+\drawcubicle[_]{(0,2,0)}{front}{top}{inner} % 7
+\drawcubicle[_]{(1,2,0)}{front}{top}{inner} %   8
+\drawcubicle[_]{(2,2,0)}{front}{top}{right} %     9
+%%
+\end{tikzpicture}

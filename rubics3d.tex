@@ -60,160 +60,30 @@
   \pgfusepath{fill}
 }
 
-\tikzset{front/.style={fill=red}}
-\tikzset{top/.style={fill=white}}
-\tikzset{right/.style={fill=blue}}
-\tikzset{inner/.style={fill=gray!50!white,draw=black}}
-
 
 \begin{document}
 
-\begin{tikzpicture}[z={(0.5cm,0.5cm)}]
-  \cubeCanvas
-%%%% BOTTOM
-\drawcubicle[_]{(0,0,2)}{inner}{inner}{inner} % 1
-\drawcubicle[_]{(1,0,2)}{inner}{inner}{inner} %   2
-\drawcubicle[_]{(2,0,2)}{inner}{inner}{right} %     3
-\drawcubicle[_]{(0,0,1)}{inner}{inner}{inner} % 4
-\drawcubicle[X]{(1,0,1)}{inner}{inner}{inner} %   5
-\drawcubicle[_]{(2,0,1)}{inner}{inner}{right} %     6
-\drawcubicle[_]{(0,0,0)}{front}{inner}{inner} % 7
-\drawcubicle[_]{(1,0,0)}{front}{inner}{inner} %   8
-\drawcubicle[_]{(2,0,0)}{front}{inner}{right} %     9
-%%
-%%%% MIDDLE
-\drawcubicle[_]{(0,1,2)}{inner}{inner}{inner} % 1
-\drawcubicle[X]{(1,1,2)}{inner}{inner}{inner} %   2
-\drawcubicle[_]{(2,1,2)}{inner}{inner}{right} %     3
-\drawcubicle[X]{(0,1,1)}{inner}{inner}{inner} % 4
-\drawcubicle[X]{(1,1,1)}{inner}{inner}{inner} %   5
-\drawcubicle[X]{(2,1,1)}{inner}{inner}{right} %     6
-\drawcubicle[_]{(0,1,0)}{front}{inner}{inner} % 7
-\drawcubicle[X]{(1,1,0)}{front}{inner}{inner} %   8
-\drawcubicle[_]{(2,1,0)}{front}{inner}{right} %     9
-%%
-%%%% TOP
-\drawcubicle[_]{(0,2,2)}{inner}{top}{inner} % 1
-\drawcubicle[_]{(1,2,2)}{inner}{top}{inner} %   2
-\drawcubicle[_]{(2,2,2)}{inner}{top}{right} %     3
-\drawcubicle[_]{(0,2,1)}{inner}{top}{inner} % 4
-\drawcubicle[X]{(1,2,1)}{inner}{top}{inner} %   5
-\drawcubicle[_]{(2,2,1)}{inner}{top}{right} %     6
-\drawcubicle[_]{(0,2,0)}{front}{top}{inner} % 7
-\drawcubicle[_]{(1,2,0)}{front}{top}{inner} %   8
-\drawcubicle[_]{(2,2,0)}{front}{top}{right} %     9
-%%
-\end{tikzpicture}
+\tikzset{inner/.style={fill=gray!50!white,draw=black}}
 
-\begin{tikzpicture}[z={(0.5cm,0.5cm)}]
-  \cubeCanvas
-%%%% BOTTOM
-\drawcubicle[_]{(0,0,2)}{inner}{inner}{inner} % 1
-\drawcubicle[_]{(1,0,2)}{inner}{inner}{inner} %   2
-\drawcubicle[_]{(2,0,2)}{inner}{inner}{right} %     3
-\drawcubicle[_]{(0,0,1)}{inner}{inner}{inner} % 4
-\drawcubicle[X]{(1,0,1)}{inner}{inner}{inner} %   5
-\drawcubicle[_]{(2,0,1)}{inner}{inner}{right} %     6
-\drawcubicle[_]{(0,0,0)}{front}{inner}{inner} % 7
-\drawcubicle[_]{(1,0,0)}{front}{inner}{inner} %   8
-\drawcubicle[_]{(2,0,0)}{front}{inner}{right} %     9
-%%
-%%%% MIDDLE
-\drawcubicle[_]{(0,1,2)}{inner}{inner}{inner} % 1
-\drawcubicle[X]{(1,1,2)}{inner}{inner}{inner} %   2
-\drawcubicle[_]{(2,1,2)}{inner}{inner}{right} %     3
-\drawcubicle[X]{(0,1,1)}{inner}{inner}{inner} % 4
-\drawcubicle[X]{(1,1,1)}{inner}{inner}{inner} %   5
-\drawcubicle[X]{(2,1,1)}{inner}{inner}{right} %     6
-\drawcubicle[_]{(0,1,0)}{front}{inner}{inner} % 7
-\drawcubicle[X]{(1,1,0)}{front}{inner}{inner} %   8
-\drawcubicle[_]{(2,1,0)}{front}{inner}{right} %     9
-%%
-%%%% TOP
-\drawcubicle[_]{(0,2,2)}{inner}{top}{inner} % 1
-\drawcubicle[X]{(1,2,2)}{inner}{top}{inner} %   2
-\drawcubicle[_]{(2,2,2)}{inner}{top}{right} %     3
-\drawcubicle[X]{(0,2,1)}{inner}{top}{inner} % 4
-\drawcubicle[X]{(1,2,1)}{inner}{top}{inner} %   5
-\drawcubicle[X]{(2,2,1)}{inner}{top}{right} %     6
-\drawcubicle[_]{(0,2,0)}{front}{top}{inner} % 7
-\drawcubicle[X]{(1,2,0)}{front}{top}{inner} %   8
-\drawcubicle[_]{(2,2,0)}{front}{top}{right} %     9
-%%
-\end{tikzpicture}
+\tikzset{front/.style={fill=red}}
+\tikzset{top/.style={fill=white}}
+\tikzset{right/.style={fill=blue}}
+\input{00_initial.tex}
+\input{01_top_cross.tex}
+\input{02_top_layer.tex}
 
-\begin{tikzpicture}[z={(0.5cm,0.5cm)}]
-  \cubeCanvas
-%%%% BOTTOM
-\drawcubicle[_]{(0,0,2)}{inner}{inner}{inner} % 1
-\drawcubicle[_]{(1,0,2)}{inner}{inner}{inner} %   2
-\drawcubicle[_]{(2,0,2)}{inner}{inner}{right} %     3
-\drawcubicle[_]{(0,0,1)}{inner}{inner}{inner} % 4
-\drawcubicle[X]{(1,0,1)}{inner}{inner}{inner} %   5
-\drawcubicle[_]{(2,0,1)}{inner}{inner}{right} %     6
-\drawcubicle[_]{(0,0,0)}{front}{inner}{inner} % 7
-\drawcubicle[_]{(1,0,0)}{front}{inner}{inner} %   8
-\drawcubicle[_]{(2,0,0)}{front}{inner}{right} %     9
-%%
-%%%% MIDDLE
-\drawcubicle[_]{(0,1,2)}{inner}{inner}{inner} % 1
-\drawcubicle[X]{(1,1,2)}{inner}{inner}{inner} %   2
-\drawcubicle[_]{(2,1,2)}{inner}{inner}{right} %     3
-\drawcubicle[X]{(0,1,1)}{inner}{inner}{inner} % 4
-\drawcubicle[X]{(1,1,1)}{inner}{inner}{inner} %   5
-\drawcubicle[X]{(2,1,1)}{inner}{inner}{right} %     6
-\drawcubicle[_]{(0,1,0)}{front}{inner}{inner} % 7
-\drawcubicle[X]{(1,1,0)}{front}{inner}{inner} %   8
-\drawcubicle[_]{(2,1,0)}{front}{inner}{right} %     9
-%%
-%%%% TOP
-\drawcubicle[X]{(0,2,2)}{inner}{top}{inner} % 1
-\drawcubicle[X]{(1,2,2)}{inner}{top}{inner} %   2
-\drawcubicle[X]{(2,2,2)}{inner}{top}{right} %     3
-\drawcubicle[X]{(0,2,1)}{inner}{top}{inner} % 4
-\drawcubicle[X]{(1,2,1)}{inner}{top}{inner} %   5
-\drawcubicle[X]{(2,2,1)}{inner}{top}{right} %     6
-\drawcubicle[X]{(0,2,0)}{front}{top}{inner} % 7
-\drawcubicle[X]{(1,2,0)}{front}{top}{inner} %   8
-\drawcubicle[_]{(2,2,0)}{front}{top}{right} %     9
-%%
-\end{tikzpicture}
+\tikzset{front/.style={fill=blue}}
+\tikzset{top/.style={fill=yellow}}
+\tikzset{right/.style={fill=red}}
+\input{03_top_layer_upside_down.tex}
+\input{04_middle_cross.tex}
+\input{05_top_cross_almost.tex}
+\input{06_top_cross.tex}
 
-\begin{tikzpicture}[z={(0.5cm,0.5cm)}]
-  \cubeCanvas
-%%%% BOTTOM
-\drawcubicle[_]{(0,0,2)}{inner}{inner}{inner} % 1
-\drawcubicle[X]{(1,0,2)}{inner}{inner}{inner} %   2
-\drawcubicle[_]{(2,0,2)}{inner}{inner}{right} %     3
-\drawcubicle[X]{(0,0,1)}{inner}{inner}{inner} % 4
-\drawcubicle[X]{(1,0,1)}{inner}{inner}{inner} %   5
-\drawcubicle[X]{(2,0,1)}{inner}{inner}{right} %     6
-\drawcubicle[_]{(0,0,0)}{front}{inner}{inner} % 7
-\drawcubicle[X]{(1,0,0)}{front}{inner}{inner} %   8
-\drawcubicle[_]{(2,0,0)}{front}{inner}{right} %     9
-%%
-%%%% MIDDLE
-\drawcubicle[X]{(0,1,2)}{inner}{inner}{inner} % 1
-\drawcubicle[X]{(1,1,2)}{inner}{inner}{inner} %   2
-\drawcubicle[X]{(2,1,2)}{inner}{inner}{right} %     3
-\drawcubicle[X]{(0,1,1)}{inner}{inner}{inner} % 4
-\drawcubicle[X]{(1,1,1)}{inner}{inner}{inner} %   5
-\drawcubicle[X]{(2,1,1)}{inner}{inner}{right} %     6
-\drawcubicle[X]{(0,1,0)}{front}{inner}{inner} % 7
-\drawcubicle[X]{(1,1,0)}{front}{inner}{inner} %   8
-\drawcubicle[X]{(2,1,0)}{front}{inner}{right} %     9
-%%
-%%%% TOP
-\drawcubicle[X]{(0,2,2)}{inner}{top}{inner} % 1
-\drawcubicle[X]{(1,2,2)}{inner}{top}{inner} %   2
-\drawcubicle[X]{(2,2,2)}{inner}{top}{right} %     3
-\drawcubicle[X]{(0,2,1)}{inner}{top}{inner} % 4
-\drawcubicle[X]{(1,2,1)}{inner}{top}{inner} %   5
-\drawcubicle[X]{(2,2,1)}{inner}{top}{right} %     6
-\drawcubicle[X]{(0,2,0)}{front}{top}{inner} % 7
-\drawcubicle[X]{(1,2,0)}{front}{top}{inner} %   8
-\drawcubicle[_]{(2,2,0)}{front}{top}{right} %     9
-%%
-\end{tikzpicture}
+\tikzset{front/.style={fill=red}}
+\tikzset{top/.style={fill=green}}
+\tikzset{right/.style={fill=white}}
+\input{07_top_cross_rotated.tex}
+\input{08_final.tex}
 
 \end{document}
