@@ -14,8 +14,8 @@
 \definecolor{orange}{RGB}{255,165,0}
 
 % Define the function to draw a single cubicle
-\newcommand{\drawcubicle}[5][onn]{
-  \ifthenelse{\equal{#1}{onn}}{
+\newcommand{\drawcubicle}[5][X]{
+  \ifthenelse{\equal{#1}{X}}{
   \begin{scope}[shift={#2}]
     % Front face
     \begin{scope}[canvas is xy plane at z=0]
@@ -71,148 +71,148 @@
 \begin{tikzpicture}[z={(0.5cm,0.5cm)}]
   \cubeCanvas
 %%%% BOTTOM
-\drawcubicle[off]{(0,0,2)}{inner}{inner}{inner} % 1
-\drawcubicle[off]{(1,0,2)}{inner}{inner}{inner} %   2
-\drawcubicle[off]{(2,0,2)}{inner}{inner}{right} %     3
-\drawcubicle[off]{(0,0,1)}{inner}{inner}{inner} % 4
-\drawcubicle[onn]{(1,0,1)}{inner}{inner}{inner} %   5
-\drawcubicle[off]{(2,0,1)}{inner}{inner}{right} %     6
-\drawcubicle[off]{(0,0,0)}{front}{inner}{inner} % 7
-\drawcubicle[off]{(1,0,0)}{front}{inner}{inner} %   8
-\drawcubicle[off]{(2,0,0)}{front}{inner}{right} %     9
+\drawcubicle[_]{(0,0,2)}{inner}{inner}{inner} % 1
+\drawcubicle[_]{(1,0,2)}{inner}{inner}{inner} %   2
+\drawcubicle[_]{(2,0,2)}{inner}{inner}{right} %     3
+\drawcubicle[_]{(0,0,1)}{inner}{inner}{inner} % 4
+\drawcubicle[X]{(1,0,1)}{inner}{inner}{inner} %   5
+\drawcubicle[_]{(2,0,1)}{inner}{inner}{right} %     6
+\drawcubicle[_]{(0,0,0)}{front}{inner}{inner} % 7
+\drawcubicle[_]{(1,0,0)}{front}{inner}{inner} %   8
+\drawcubicle[_]{(2,0,0)}{front}{inner}{right} %     9
 %%
 %%%% MIDDLE
-\drawcubicle[off]{(0,1,2)}{inner}{inner}{inner} % 1
-\drawcubicle[onn]{(1,1,2)}{inner}{inner}{inner} %   2
-\drawcubicle[off]{(2,1,2)}{inner}{inner}{right} %     3
-\drawcubicle[onn]{(0,1,1)}{inner}{inner}{inner} % 4
-\drawcubicle[off]{(1,1,1)}{inner}{inner}{inner} %   5
-\drawcubicle[onn]{(2,1,1)}{inner}{inner}{right} %     6
-\drawcubicle[off]{(0,1,0)}{front}{inner}{inner} % 7
-\drawcubicle[onn]{(1,1,0)}{front}{inner}{inner} %   8
-\drawcubicle[off]{(2,1,0)}{front}{inner}{right} %     9
+\drawcubicle[_]{(0,1,2)}{inner}{inner}{inner} % 1
+\drawcubicle[X]{(1,1,2)}{inner}{inner}{inner} %   2
+\drawcubicle[_]{(2,1,2)}{inner}{inner}{right} %     3
+\drawcubicle[X]{(0,1,1)}{inner}{inner}{inner} % 4
+\drawcubicle[_]{(1,1,1)}{inner}{inner}{inner} %   5
+\drawcubicle[X]{(2,1,1)}{inner}{inner}{right} %     6
+\drawcubicle[_]{(0,1,0)}{front}{inner}{inner} % 7
+\drawcubicle[X]{(1,1,0)}{front}{inner}{inner} %   8
+\drawcubicle[_]{(2,1,0)}{front}{inner}{right} %     9
 %%
 %%%% TOP
-\drawcubicle[off]{(0,2,2)}{inner}{top}{inner} % 1
-\drawcubicle[off]{(1,2,2)}{inner}{top}{inner} %   2
-\drawcubicle[off]{(2,2,2)}{inner}{top}{right} %     3
-\drawcubicle[off]{(0,2,1)}{inner}{top}{inner} % 4
-\drawcubicle[onn]{(1,2,1)}{inner}{top}{inner} %   5
-\drawcubicle[off]{(2,2,1)}{inner}{top}{right} %     6
-\drawcubicle[off]{(0,2,0)}{front}{top}{inner} % 7
-\drawcubicle[off]{(1,2,0)}{front}{top}{inner} %   8
-\drawcubicle[off]{(2,2,0)}{front}{top}{right} %     9
+\drawcubicle[_]{(0,2,2)}{inner}{top}{inner} % 1
+\drawcubicle[_]{(1,2,2)}{inner}{top}{inner} %   2
+\drawcubicle[_]{(2,2,2)}{inner}{top}{right} %     3
+\drawcubicle[_]{(0,2,1)}{inner}{top}{inner} % 4
+\drawcubicle[X]{(1,2,1)}{inner}{top}{inner} %   5
+\drawcubicle[_]{(2,2,1)}{inner}{top}{right} %     6
+\drawcubicle[_]{(0,2,0)}{front}{top}{inner} % 7
+\drawcubicle[_]{(1,2,0)}{front}{top}{inner} %   8
+\drawcubicle[_]{(2,2,0)}{front}{top}{right} %     9
 %%
 \end{tikzpicture}
 
 \begin{tikzpicture}[z={(0.5cm,0.5cm)}]
   \cubeCanvas
 %%%% BOTTOM
-\drawcubicle[off]{(0,0,2)}{inner}{inner}{inner} % 1
-\drawcubicle[off]{(1,0,2)}{inner}{inner}{inner} %   2
-\drawcubicle[off]{(2,0,2)}{inner}{inner}{right} %     3
-\drawcubicle[off]{(0,0,1)}{inner}{inner}{inner} % 4
-\drawcubicle[onn]{(1,0,1)}{inner}{inner}{inner} %   5
-\drawcubicle[off]{(2,0,1)}{inner}{inner}{right} %     6
-\drawcubicle[off]{(0,0,0)}{front}{inner}{inner} % 7
-\drawcubicle[off]{(1,0,0)}{front}{inner}{inner} %   8
-\drawcubicle[off]{(2,0,0)}{front}{inner}{right} %     9
+\drawcubicle[_]{(0,0,2)}{inner}{inner}{inner} % 1
+\drawcubicle[_]{(1,0,2)}{inner}{inner}{inner} %   2
+\drawcubicle[_]{(2,0,2)}{inner}{inner}{right} %     3
+\drawcubicle[_]{(0,0,1)}{inner}{inner}{inner} % 4
+\drawcubicle[X]{(1,0,1)}{inner}{inner}{inner} %   5
+\drawcubicle[_]{(2,0,1)}{inner}{inner}{right} %     6
+\drawcubicle[_]{(0,0,0)}{front}{inner}{inner} % 7
+\drawcubicle[_]{(1,0,0)}{front}{inner}{inner} %   8
+\drawcubicle[_]{(2,0,0)}{front}{inner}{right} %     9
 %%
 %%%% MIDDLE
-\drawcubicle[off]{(0,1,2)}{inner}{inner}{inner} % 1
-\drawcubicle[off]{(1,1,2)}{inner}{inner}{inner} %   2
-\drawcubicle[off]{(2,1,2)}{inner}{inner}{right} %     3
-\drawcubicle[onn]{(0,1,1)}{inner}{inner}{inner} % 4
-\drawcubicle[onn]{(1,1,1)}{inner}{inner}{inner} %   5
-\drawcubicle[onn]{(2,1,1)}{inner}{inner}{right} %     6
-\drawcubicle[off]{(0,1,0)}{front}{inner}{inner} % 7
-\drawcubicle[onn]{(1,1,0)}{front}{inner}{inner} %   8
-\drawcubicle[off]{(2,1,0)}{front}{inner}{right} %     9
+\drawcubicle[_]{(0,1,2)}{inner}{inner}{inner} % 1
+\drawcubicle[_]{(1,1,2)}{inner}{inner}{inner} %   2
+\drawcubicle[_]{(2,1,2)}{inner}{inner}{right} %     3
+\drawcubicle[X]{(0,1,1)}{inner}{inner}{inner} % 4
+\drawcubicle[X]{(1,1,1)}{inner}{inner}{inner} %   5
+\drawcubicle[X]{(2,1,1)}{inner}{inner}{right} %     6
+\drawcubicle[_]{(0,1,0)}{front}{inner}{inner} % 7
+\drawcubicle[X]{(1,1,0)}{front}{inner}{inner} %   8
+\drawcubicle[_]{(2,1,0)}{front}{inner}{right} %     9
 %%
 %%%% TOP
-\drawcubicle[off]{(0,2,2)}{inner}{top}{inner} % 1
-\drawcubicle[onn]{(1,2,2)}{inner}{top}{inner} %   2
-\drawcubicle[off]{(2,2,2)}{inner}{top}{right} %     3
-\drawcubicle[onn]{(0,2,1)}{inner}{top}{inner} % 4
-\drawcubicle[onn]{(1,2,1)}{inner}{top}{inner} %   5
-\drawcubicle[onn]{(2,2,1)}{inner}{top}{right} %     6
-\drawcubicle[off]{(0,2,0)}{front}{top}{inner} % 7
-\drawcubicle[onn]{(1,2,0)}{front}{top}{inner} %   8
-\drawcubicle[off]{(2,2,0)}{front}{top}{right} %     9
+\drawcubicle[_]{(0,2,2)}{inner}{top}{inner} % 1
+\drawcubicle[X]{(1,2,2)}{inner}{top}{inner} %   2
+\drawcubicle[_]{(2,2,2)}{inner}{top}{right} %     3
+\drawcubicle[X]{(0,2,1)}{inner}{top}{inner} % 4
+\drawcubicle[X]{(1,2,1)}{inner}{top}{inner} %   5
+\drawcubicle[X]{(2,2,1)}{inner}{top}{right} %     6
+\drawcubicle[_]{(0,2,0)}{front}{top}{inner} % 7
+\drawcubicle[X]{(1,2,0)}{front}{top}{inner} %   8
+\drawcubicle[_]{(2,2,0)}{front}{top}{right} %     9
 %%
 \end{tikzpicture}
 
 \begin{tikzpicture}[z={(0.5cm,0.5cm)}]
   \cubeCanvas
 %%%% BOTTOM
-\drawcubicle[off]{(0,0,2)}{inner}{inner}{inner} % 1
-\drawcubicle[off]{(1,0,2)}{inner}{inner}{inner} %   2
-\drawcubicle[off]{(2,0,2)}{inner}{inner}{right} %     3
-\drawcubicle[off]{(0,0,1)}{inner}{inner}{inner} % 4
-\drawcubicle[onn]{(1,0,1)}{inner}{inner}{inner} %   5
-\drawcubicle[off]{(2,0,1)}{inner}{inner}{right} %     6
-\drawcubicle[off]{(0,0,0)}{front}{inner}{inner} % 7
-\drawcubicle[off]{(1,0,0)}{front}{inner}{inner} %   8
-\drawcubicle[off]{(2,0,0)}{front}{inner}{right} %     9
+\drawcubicle[_]{(0,0,2)}{inner}{inner}{inner} % 1
+\drawcubicle[_]{(1,0,2)}{inner}{inner}{inner} %   2
+\drawcubicle[_]{(2,0,2)}{inner}{inner}{right} %     3
+\drawcubicle[_]{(0,0,1)}{inner}{inner}{inner} % 4
+\drawcubicle[X]{(1,0,1)}{inner}{inner}{inner} %   5
+\drawcubicle[_]{(2,0,1)}{inner}{inner}{right} %     6
+\drawcubicle[_]{(0,0,0)}{front}{inner}{inner} % 7
+\drawcubicle[_]{(1,0,0)}{front}{inner}{inner} %   8
+\drawcubicle[_]{(2,0,0)}{front}{inner}{right} %     9
 %%
 %%%% MIDDLE
-\drawcubicle[off]{(0,1,2)}{inner}{inner}{inner} % 1
-\drawcubicle[off]{(1,1,2)}{inner}{inner}{inner} %   2
-\drawcubicle[off]{(2,1,2)}{inner}{inner}{right} %     3
-\drawcubicle[onn]{(0,1,1)}{inner}{inner}{inner} % 4
-\drawcubicle[onn]{(1,1,1)}{inner}{inner}{inner} %   5
-\drawcubicle[onn]{(2,1,1)}{inner}{inner}{right} %     6
-\drawcubicle[off]{(0,1,0)}{front}{inner}{inner} % 7
-\drawcubicle[onn]{(1,1,0)}{front}{inner}{inner} %   8
-\drawcubicle[off]{(2,1,0)}{front}{inner}{right} %     9
+\drawcubicle[_]{(0,1,2)}{inner}{inner}{inner} % 1
+\drawcubicle[_]{(1,1,2)}{inner}{inner}{inner} %   2
+\drawcubicle[_]{(2,1,2)}{inner}{inner}{right} %     3
+\drawcubicle[X]{(0,1,1)}{inner}{inner}{inner} % 4
+\drawcubicle[X]{(1,1,1)}{inner}{inner}{inner} %   5
+\drawcubicle[X]{(2,1,1)}{inner}{inner}{right} %     6
+\drawcubicle[_]{(0,1,0)}{front}{inner}{inner} % 7
+\drawcubicle[X]{(1,1,0)}{front}{inner}{inner} %   8
+\drawcubicle[_]{(2,1,0)}{front}{inner}{right} %     9
 %%
 %%%% TOP
-\drawcubicle[onn]{(0,2,2)}{inner}{top}{inner} % 1
-\drawcubicle[onn]{(1,2,2)}{inner}{top}{inner} %   2
-\drawcubicle[onn]{(2,2,2)}{inner}{top}{right} %     3
-\drawcubicle[onn]{(0,2,1)}{inner}{top}{inner} % 4
-\drawcubicle[onn]{(1,2,1)}{inner}{top}{inner} %   5
-\drawcubicle[onn]{(2,2,1)}{inner}{top}{right} %     6
-\drawcubicle[onn]{(0,2,0)}{front}{top}{inner} % 7
-\drawcubicle[onn]{(1,2,0)}{front}{top}{inner} %   8
-\drawcubicle[off]{(2,2,0)}{front}{top}{right} %     9
+\drawcubicle[X]{(0,2,2)}{inner}{top}{inner} % 1
+\drawcubicle[X]{(1,2,2)}{inner}{top}{inner} %   2
+\drawcubicle[X]{(2,2,2)}{inner}{top}{right} %     3
+\drawcubicle[X]{(0,2,1)}{inner}{top}{inner} % 4
+\drawcubicle[X]{(1,2,1)}{inner}{top}{inner} %   5
+\drawcubicle[X]{(2,2,1)}{inner}{top}{right} %     6
+\drawcubicle[X]{(0,2,0)}{front}{top}{inner} % 7
+\drawcubicle[X]{(1,2,0)}{front}{top}{inner} %   8
+\drawcubicle[_]{(2,2,0)}{front}{top}{right} %     9
 %%
 \end{tikzpicture}
 
 \begin{tikzpicture}[z={(0.5cm,0.5cm)}]
   \cubeCanvas
 %%%% BOTTOM
-\drawcubicle[off]{(0,0,2)}{inner}{inner}{inner} % 1
-\drawcubicle[onn]{(1,0,2)}{inner}{inner}{inner} %   2
-\drawcubicle[off]{(2,0,2)}{inner}{inner}{right} %     3
-\drawcubicle[onn]{(0,0,1)}{inner}{inner}{inner} % 4
-\drawcubicle[onn]{(1,0,1)}{inner}{inner}{inner} %   5
-\drawcubicle[onn]{(2,0,1)}{inner}{inner}{right} %     6
-\drawcubicle[off]{(0,0,0)}{front}{inner}{inner} % 7
-\drawcubicle[onn]{(1,0,0)}{front}{inner}{inner} %   8
-\drawcubicle[off]{(2,0,0)}{front}{inner}{right} %     9
+\drawcubicle[_]{(0,0,2)}{inner}{inner}{inner} % 1
+\drawcubicle[X]{(1,0,2)}{inner}{inner}{inner} %   2
+\drawcubicle[_]{(2,0,2)}{inner}{inner}{right} %     3
+\drawcubicle[X]{(0,0,1)}{inner}{inner}{inner} % 4
+\drawcubicle[X]{(1,0,1)}{inner}{inner}{inner} %   5
+\drawcubicle[X]{(2,0,1)}{inner}{inner}{right} %     6
+\drawcubicle[_]{(0,0,0)}{front}{inner}{inner} % 7
+\drawcubicle[X]{(1,0,0)}{front}{inner}{inner} %   8
+\drawcubicle[_]{(2,0,0)}{front}{inner}{right} %     9
 %%
 %%%% MIDDLE
-\drawcubicle[onn]{(0,1,2)}{inner}{inner}{inner} % 1
-\drawcubicle[onn]{(1,1,2)}{inner}{inner}{inner} %   2
-\drawcubicle[onn]{(2,1,2)}{inner}{inner}{right} %     3
-\drawcubicle[onn]{(0,1,1)}{inner}{inner}{inner} % 4
-\drawcubicle[onn]{(1,1,1)}{inner}{inner}{inner} %   5
-\drawcubicle[onn]{(2,1,1)}{inner}{inner}{right} %     6
-\drawcubicle[onn]{(0,1,0)}{front}{inner}{inner} % 7
-\drawcubicle[onn]{(1,1,0)}{front}{inner}{inner} %   8
-\drawcubicle[onn]{(2,1,0)}{front}{inner}{right} %     9
+\drawcubicle[X]{(0,1,2)}{inner}{inner}{inner} % 1
+\drawcubicle[X]{(1,1,2)}{inner}{inner}{inner} %   2
+\drawcubicle[X]{(2,1,2)}{inner}{inner}{right} %     3
+\drawcubicle[X]{(0,1,1)}{inner}{inner}{inner} % 4
+\drawcubicle[X]{(1,1,1)}{inner}{inner}{inner} %   5
+\drawcubicle[X]{(2,1,1)}{inner}{inner}{right} %     6
+\drawcubicle[X]{(0,1,0)}{front}{inner}{inner} % 7
+\drawcubicle[X]{(1,1,0)}{front}{inner}{inner} %   8
+\drawcubicle[X]{(2,1,0)}{front}{inner}{right} %     9
 %%
 %%%% TOP
-\drawcubicle[onn]{(0,2,2)}{inner}{top}{inner} % 1
-\drawcubicle[onn]{(1,2,2)}{inner}{top}{inner} %   2
-\drawcubicle[onn]{(2,2,2)}{inner}{top}{right} %     3
-\drawcubicle[onn]{(0,2,1)}{inner}{top}{inner} % 4
-\drawcubicle[onn]{(1,2,1)}{inner}{top}{inner} %   5
-\drawcubicle[onn]{(2,2,1)}{inner}{top}{right} %     6
-\drawcubicle[onn]{(0,2,0)}{front}{top}{inner} % 7
-\drawcubicle[onn]{(1,2,0)}{front}{top}{inner} %   8
-\drawcubicle[off]{(2,2,0)}{front}{top}{right} %     9
+\drawcubicle[X]{(0,2,2)}{inner}{top}{inner} % 1
+\drawcubicle[X]{(1,2,2)}{inner}{top}{inner} %   2
+\drawcubicle[X]{(2,2,2)}{inner}{top}{right} %     3
+\drawcubicle[X]{(0,2,1)}{inner}{top}{inner} % 4
+\drawcubicle[X]{(1,2,1)}{inner}{top}{inner} %   5
+\drawcubicle[X]{(2,2,1)}{inner}{top}{right} %     6
+\drawcubicle[X]{(0,2,0)}{front}{top}{inner} % 7
+\drawcubicle[X]{(1,2,0)}{front}{top}{inner} %   8
+\drawcubicle[_]{(2,2,0)}{front}{top}{right} %     9
 %%
 \end{tikzpicture}
 
