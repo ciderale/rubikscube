@@ -25,7 +25,7 @@
           documentation.nix-discover.option-search.enable = true;
           documentation.nix-discover.package-search.enable = true;
           languages.texlive.enable = true;
-          languages.texlive.packages = ["standalone"];
+          languages.texlive.packages = ["standalone" "varwidth"];
         };
       };
     };
