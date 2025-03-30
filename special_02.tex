@@ -40,17 +40,22 @@
       (0.5,1.5) circle (1.4)
       (0.5,1.5) circle (1.0)
     ;
+    \draw (0.5,1.5) node[text=white,fill=pale] {\bf turn};
   \end{scope}
   \begin{scope}[canvas is yz plane at x=2.0]
     \draw[fill=black, fill opacity=0.5,even odd rule]
       (0.5,1.5) circle (1.4)
       (0.5,1.5) circle (1.0)
     ;
+    \draw (0.5,1.5) node[text=white,fill=pale] {\bf turn};
   \end{scope}
-  \draw[->,ultrathick] (-0.5,+1.5+0.2,0) -- ++(2.0,0,0) node[arrowlabel]{A};
-  \draw[->,ultrathick] (+1.5+0.2,-0.5,0) -- ++(0,2.0,0) node[arrowlabel]{B};
-  \draw[->,ultrathick] (-0.5+2,+1.5-0.2,0) -- ++(-2.0,0,0) node[arrowlabel]{C};
-  \draw[->,ultrathick] (+1.5-0.2,-0.5+2,0) -- ++(0,-2.0,0) node[arrowlabel]{D};
+  \begin{scope}[canvas is xy plane at z=0]
+    \fill[pattern=checkerboard,opacity=0.5] (-1,-1) rectangle ++(2,2) node[midway,opacity=1,text=white,fill=pale]{\bf hold};
+    \draw[->,ultrathick] (-0.5,+1.5+0.2) -- ++(2.0,0) node[arrowlabel]{A};
+    \draw[->,ultrathick] (+1.5+0.2,-0.5) -- ++(0,2.0) node[arrowlabel]{B};
+    \draw[->,ultrathick] (-0.5+2,+1.5-0.2) -- ++(-2.0,0) node[arrowlabel]{C};
+    \draw[->,ultrathick] (+1.5-0.2,-0.5+2) -- ++(0,-2.0) node[arrowlabel]{D};
+  \end{scope}
 \end{scope}
 
   \draw (1.5,0.5) coordinate(thecenter);
@@ -67,10 +72,10 @@
     \path[->] (thecenter) -- ++(-\i*60:\theradius) coordinate(A);
 
 
-    \begin{scope}[shift={(A)},fill opacity=\opa]
+    \begin{scope}[shift={(A)},fill opacity=1]%\opa]
       \draw (-1,-1) grid ++(3,3);
       \draw[fill=pale,fill opacity=0.3] (-1,-1) rectangle ++(3,3);
-      \pgfmathsetmacro{\nodename}{int(\i+1)}
+      \pgfmathsetmacro{\nodename}{\i}
       \draw (0.5,0.5) node{\bf \nodename};
       \begin{scope}[z={(-0.5cm,+0.5cm)}]
         % Lookup of color rotation
