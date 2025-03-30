@@ -1,4 +1,6 @@
 \begin{tikzpicture}
+  \tikzset{arrowlabel/.style={draw=black,fill=white,circle,inner sep=0.5pt}}
+
 \begin{scope}
   [x={(0.9cm,-0.1cm)},y={(0,0.9cm)},z={(0.6cm,0.4cm)}]
 % BACK
@@ -44,25 +46,29 @@
       (0.5,1.5) circle (1.0)
     ;
   \end{scope}
-  \tikzset{arrowlabel/.style={draw=black,fill=white,circle,inner sep=0.5pt}}
   \draw[->,very thick] (-0.5,+1.5+0.2,0) -- ++(2.0,0,0) node[pos=0.8,arrowlabel]{1};
   \draw[->,very thick] (+1.5+0.2,-0.5,0) -- ++(0,2.0,0) node[pos=0.8,arrowlabel]{2};
   \draw[<-,very thick] (-0.5,+1.5-0.2,0) -- ++(2.0,0,0) node[pos=0.2,arrowlabel]{3};
   \draw[<-,very thick] (+1.5-0.2,-0.5,0) -- ++(0,2.0,0) node[pos=0.2,arrowlabel]{4};
 \end{scope}
 
+  \draw (1.5,0.5) coordinate(thecenter);
+  \def\theradius{6}
 \begin{pgfonlayer}{background}
   \draw[fill=black, fill opacity=0.5,even odd rule]
-  (1.0,0.5) circle (7)
-  (1.0,0.5) circle (6.5);
+  (thecenter) circle (\theradius+0.25)
+  (thecenter) circle (\theradius-0.25);
 \end{pgfonlayer}
 
   % define cube face color in "neutral" position
   \def\myarray{{{"red","yellow","green"},{"red","white","blue"}}}
-  \foreach \i in {0, +1, +2, +3, -2, -1} {
-    \path[->] (1.0,0.5) -- ++(180-\i*60:6) node[thick]{\bf \i} coordinate(A);
+  \foreach \i in {0, +1, +2, +3, +4, -1} {
+    \path[->] (thecenter) -- ++(-\i*60:\theradius) coordinate(A);
 
     \begin{scope}[shift={(A)},local bounding box=a]
+      \draw (-1,-1) grid ++(3,3);
+      \draw[fill=pale,fill opacity=0.3] (-1,-1) rectangle ++(3,3);
+      \draw (0.5,0.5) node{\bf \i};
       \begin{scope}[z={(-0.5cm,+0.5cm)}]
         % Lookup of color rotation
         \pgfmathsetmacro{\currentcolourA}{\myarray[Mod(\i,2)][Mod(\i+0,3)]}
@@ -86,9 +92,28 @@
         \drawCubicleSouthEast[X]{+1}{-1}{0}
       \end{scope}
     \end{scope}
-
-    \begin{pgfonlayer}{background}
-      \fill[yellow,opacity=0.3] (a.south west) rectangle (a.north east);
-    \end{pgfonlayer}
   }
+
+\begin{scope}[shift={(+\theradius+1.5,+4.5)}]
+  \draw (0,0) coordinate(X);
+  \draw[->,very thick] (X) -- ++(2,0) node[pos=0.8,arrowlabel]{1} coordinate(X);
+  \draw[->,very thick] (X) -- ++(0,2) node[pos=0.8,arrowlabel]{2} coordinate(X);
+  \draw[->,very thick] (X) -- ++(-2,0) node[pos=0.8,arrowlabel]{3} coordinate(X);
+  \draw[->,very thick] (X) -- ++(0,-1.8) node[pos=0.8,arrowlabel]{4} coordinate(X);
+  \draw (1,1) node{\bf +1};
+\end{scope}
+
+\begin{scope}[shift={(+\theradius+1.5,-4.5)}]
+  \draw (0,0) coordinate(X);
+  \draw[->,very thick] (X) -- ++(0,2) node[pos=0.8,arrowlabel]{2} coordinate(X);
+  \draw[->,very thick] (X) -- ++(2,0) node[pos=0.8,arrowlabel]{1} coordinate(X);
+  \draw[->,very thick] (X) -- ++(0,-2) node[pos=0.8,arrowlabel]{4} coordinate(X);
+  \draw[->,very thick] (X) -- ++(-1.8,0) node[pos=0.8,arrowlabel]{3} coordinate(X);
+  \draw (1,1) node{\bf -1};
+\end{scope}
+
+\draw[very thick,->] (+5.5,+4.3) to[out=-130,in=130] ++(0.2,-1.4) node[above=10]{\bf +1};
+\draw[very thick,->] (+5.8,-4.5) to[out=120,in=-120] ++(0,6) node[below=10]{\bf -1};
+
+
 \end{tikzpicture}%
