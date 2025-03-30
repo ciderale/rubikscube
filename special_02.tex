@@ -1,8 +1,9 @@
 \begin{tikzpicture}
-  \tikzset{arrowlabel/.style={draw=black,fill=white,circle,inner sep=0.5pt}}
+  \tikzset{arrowlabel/.style={pos=0.75,draw=black,fill=white,circle,inner sep=0.5pt,font=\sffamily\bfseries}}
+  \tikzset{ultrathick/.style={line width=2}}
 
 \begin{scope}
-  [x={(0.9cm,-0.1cm)},y={(0,0.9cm)},z={(0.6cm,0.4cm)}]
+  [x={(0.9cm,-0.1cm)},y={(0,0.9cm)},z={(0.6cm,0.4cm)},scale=1.1]
 % BACK
 \drawCubicleNorthEast[X]{-1}{-1}{2}
 \drawCubicleNorthEast[X]{-1}{-0}{2}
@@ -46,10 +47,10 @@
       (0.5,1.5) circle (1.0)
     ;
   \end{scope}
-  \draw[->,very thick] (-0.5,+1.5+0.2,0) -- ++(2.0,0,0) node[pos=0.8,arrowlabel]{1};
-  \draw[->,very thick] (+1.5+0.2,-0.5,0) -- ++(0,2.0,0) node[pos=0.8,arrowlabel]{2};
-  \draw[<-,very thick] (-0.5,+1.5-0.2,0) -- ++(2.0,0,0) node[pos=0.2,arrowlabel]{3};
-  \draw[<-,very thick] (+1.5-0.2,-0.5,0) -- ++(0,2.0,0) node[pos=0.2,arrowlabel]{4};
+  \draw[->,ultrathick] (-0.5,+1.5+0.2,0) -- ++(2.0,0,0) node[arrowlabel]{A};
+  \draw[->,ultrathick] (+1.5+0.2,-0.5,0) -- ++(0,2.0,0) node[arrowlabel]{B};
+  \draw[->,ultrathick] (-0.5+2,+1.5-0.2,0) -- ++(-2.0,0,0) node[arrowlabel]{C};
+  \draw[->,ultrathick] (+1.5-0.2,-0.5+2,0) -- ++(0,-2.0,0) node[arrowlabel]{D};
 \end{scope}
 
   \draw (1.5,0.5) coordinate(thecenter);
@@ -62,13 +63,15 @@
 
   % define cube face color in "neutral" position
   \def\myarray{{{"red","yellow","green"},{"red","white","blue"}}}
-  \foreach \i in {0, +1, +2, +3, +4, -1} {
+  \foreach \i/\opa in {0/1, 1/1, 2/0.6, 3/0.3, 4/0.6, 5/1} {
     \path[->] (thecenter) -- ++(-\i*60:\theradius) coordinate(A);
 
-    \begin{scope}[shift={(A)},local bounding box=a]
+
+    \begin{scope}[shift={(A)},fill opacity=\opa]
       \draw (-1,-1) grid ++(3,3);
       \draw[fill=pale,fill opacity=0.3] (-1,-1) rectangle ++(3,3);
-      \draw (0.5,0.5) node{\bf \i};
+      \pgfmathsetmacro{\nodename}{int(\i+1)}
+      \draw (0.5,0.5) node{\bf \nodename};
       \begin{scope}[z={(-0.5cm,+0.5cm)}]
         % Lookup of color rotation
         \pgfmathsetmacro{\currentcolourA}{\myarray[Mod(\i,2)][Mod(\i+0,3)]}
@@ -94,26 +97,32 @@
     \end{scope}
   }
 
-\begin{scope}[shift={(+\theradius+1.5,+4.5)}]
+\begin{scope}[shift={(+\theradius+1.5,+4.5)},local bounding box=BB]
   \draw (0,0) coordinate(X);
-  \draw[->,very thick] (X) -- ++(2,0) node[pos=0.8,arrowlabel]{1} coordinate(X);
-  \draw[->,very thick] (X) -- ++(0,2) node[pos=0.8,arrowlabel]{2} coordinate(X);
-  \draw[->,very thick] (X) -- ++(-2,0) node[pos=0.8,arrowlabel]{3} coordinate(X);
-  \draw[->,very thick] (X) -- ++(0,-1.8) node[pos=0.8,arrowlabel]{4} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(2,0) node[arrowlabel]{A} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(0,2) node[arrowlabel]{B} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(-2,0) node[arrowlabel]{C} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(0,-1.8) node[arrowlabel]{D} coordinate(X);
   \draw (1,1) node{\bf +1};
+  \begin{pgfonlayer}{background}
+    \fill[orange,opacity=0.5] (BB.north west) rectangle (BB.south east);
+  \end{pgfonlayer}
 \end{scope}
 
-\begin{scope}[shift={(+\theradius+1.5,-4.5)}]
+\begin{scope}[shift={(+\theradius+1.5,-4.5)},local bounding box=BB]
   \draw (0,0) coordinate(X);
-  \draw[->,very thick] (X) -- ++(0,2) node[pos=0.8,arrowlabel]{2} coordinate(X);
-  \draw[->,very thick] (X) -- ++(2,0) node[pos=0.8,arrowlabel]{1} coordinate(X);
-  \draw[->,very thick] (X) -- ++(0,-2) node[pos=0.8,arrowlabel]{4} coordinate(X);
-  \draw[->,very thick] (X) -- ++(-1.8,0) node[pos=0.8,arrowlabel]{3} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(0,2) node[arrowlabel]{B} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(2,0) node[arrowlabel]{A} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(0,-2) node[arrowlabel]{D} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(-1.8,0) node[arrowlabel]{C} coordinate(X);
   \draw (1,1) node{\bf -1};
+  \begin{pgfonlayer}{background}
+    \fill[orange,opacity=0.5] (BB.north west) rectangle (BB.south east);
+  \end{pgfonlayer}
 \end{scope}
 
-\draw[very thick,->] (+5.5,+4.3) to[out=-130,in=130] ++(0.2,-1.4) node[above=10]{\bf +1};
-\draw[very thick,->] (+5.8,-4.5) to[out=120,in=-120] ++(0,6) node[below=10]{\bf -1};
+\draw[ultrathick,->] (+5.5,+4.3) to[out=-130,in=130] ++(0.2,-1.4) node[above=10]{\bf +1};
+\draw[ultrathick,->] (+5.8,-4.5) to[out=120,in=-120] ++(0,6) node[below=10]{\bf -1};
 
 
 \end{tikzpicture}%
