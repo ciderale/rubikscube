@@ -51,8 +51,15 @@
   \draw[<-,very thick] (+1.5-0.2,-0.5,0) -- ++(0,2.0,0) node[pos=0.2,arrowlabel]{4};
 \end{scope}
 
-  \foreach \i in {0, 60, 120, 180, 240, 300} {
-    \path[->] (1.0,0.5) -- ++(\i:6) node{\i} coordinate(A);
+\begin{pgfonlayer}{background}
+  \draw[fill=black, fill opacity=0.5,even odd rule]
+  (1.0,0.5) circle (7)
+  (1.0,0.5) circle (6.5);
+\end{pgfonlayer}
+
+  \foreach \i in {0, +1, +2, +3, -2, -1} {
+    \path[->] (1.0,0.5) -- ++(180-\i*60:6) node[thick]{\bf \i} coordinate(A);
+
     \begin{scope}[shift={(A)},local bounding box=a]
       \begin{scope}[z={(-0.5cm,+0.5cm)}]
       \drawCubicleNorthWest[X]{-1}{+1}{0}
@@ -61,6 +68,7 @@
       \drawCubicleSouthEast[X]{+1}{-1}{0}
       \end{scope}
     \end{scope}
+
     \begin{pgfonlayer}{background}
       \fill[yellow,opacity=0.3] (a.south west) rectangle (a.north east);
     \end{pgfonlayer}
