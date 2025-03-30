@@ -1,0 +1,68 @@
+\begin{tikzpicture}
+\begin{scope}
+  [x={(0.9cm,-0.1cm)},y={(0,0.9cm)},z={(0.6cm,0.4cm)}]
+% BACK
+\drawCubicleNorthEast[X]{-1}{-1}{2}
+\drawCubicleNorthEast[X]{-1}{-0}{2}
+\drawCubicleNorthEast[X]{-0}{-1}{2}
+\drawCubicleNorthEast[X]{-1}{+1}{2}
+\drawCubicleNorthEast[X]{-0}{+0}{2}
+\drawCubicleNorthEast[X]{+1}{-1}{2}
+\drawCubicleNorthEast[X]{-0}{+1}{2}
+\drawCubicleNorthEast[X]{+1}{-0}{2}
+\drawCubicleNorthEast[X]{+1}{+1}{2}
+%MIDDLE
+\drawCubicleNorthEast[X]{-1}{-1}{1}
+\drawCubicleNorthEast[X]{-1}{-0}{1}
+\drawCubicleNorthEast[X]{-0}{-1}{1}
+\drawCubicleNorthEast[X]{-1}{+1}{1}
+\drawCubicleNorthEast[X]{-0}{+0}{1}
+\drawCubicleNorthEast[X]{+1}{-1}{1}
+\drawCubicleNorthEast[X]{-0}{+1}{1}
+\drawCubicleNorthEast[X]{+1}{-0}{1}
+\drawCubicleNorthEast[X]{+1}{+1}{1}
+% FRONT
+\drawCubicleNorthEast[X]{-1}{-1}{0}
+\drawCubicleNorthEast[X]{-1}{-0}{0}
+\drawCubicleNorthEast[X]{-0}{-1}{0}
+\drawCubicleNorthEast[X]{-1}{+1}{0}
+\drawCubicleNorthEast[X]{-0}{+0}{0}
+\drawCubicleNorthEast[X]{+1}{-1}{0}
+\drawCubicleNorthEast[X]{-0}{+1}{0}
+\drawCubicleNorthEast[X]{+1}{-0}{0}
+\drawCubicleNorthEast[X]{+1}{+1}{0}
+%% FRONT
+  \begin{scope}[canvas is xz plane at y=2.0]
+    \draw[fill=black, fill opacity=0.5,even odd rule]
+      (0.5,1.5) circle (1.4)
+      (0.5,1.5) circle (1.0)
+    ;
+  \end{scope}
+  \begin{scope}[canvas is yz plane at x=2.0]
+    \draw[fill=black, fill opacity=0.5,even odd rule]
+      (0.5,1.5) circle (1.4)
+      (0.5,1.5) circle (1.0)
+    ;
+  \end{scope}
+  \tikzset{arrowlabel/.style={draw=black,fill=white,circle,inner sep=0.5pt}}
+  \draw[->,very thick] (-0.5,+1.5+0.2,0) -- ++(2.0,0,0) node[pos=0.8,arrowlabel]{1};
+  \draw[->,very thick] (+1.5+0.2,-0.5,0) -- ++(0,2.0,0) node[pos=0.8,arrowlabel]{2};
+  \draw[<-,very thick] (-0.5,+1.5-0.2,0) -- ++(2.0,0,0) node[pos=0.2,arrowlabel]{3};
+  \draw[<-,very thick] (+1.5-0.2,-0.5,0) -- ++(0,2.0,0) node[pos=0.2,arrowlabel]{4};
+\end{scope}
+
+  \foreach \i in {0, 60, 120, 180, 240, 300} {
+    \path[->] (1.0,0.5) -- ++(\i:6) node{\i} coordinate(A);
+    \begin{scope}[shift={(A)},local bounding box=a]
+      \begin{scope}[z={(-0.5cm,+0.5cm)}]
+      \drawCubicleNorthWest[X]{-1}{+1}{0}
+      \end{scope}
+      \begin{scope}[z={(+0.5cm,-0.5cm)}]
+      \drawCubicleSouthEast[X]{+1}{-1}{0}
+      \end{scope}
+    \end{scope}
+    \begin{pgfonlayer}{background}
+      \fill[yellow,opacity=0.3] (a.south west) rectangle (a.north east);
+    \end{pgfonlayer}
+  }
+\end{tikzpicture}%

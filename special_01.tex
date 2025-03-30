@@ -1,0 +1,56 @@
+\begin{tikzpicture}
+  \begin{scope}[z={(-0.5cm,+0.5cm)}]
+    \drawCubicleNorthWest[X]{+1}{+1}{2}
+    \drawCubicleNorthWest[X]{+0}{+1}{2}
+    \drawCubicleNorthWest[_]{-1}{-1}{2}
+    \drawCubicleNorthWest[X]{-1}{+0}{2}
+    \drawCubicleNorthWest[_]{-1}{+1}{2}
+    %
+    \drawCubicleNorthWest[X]{-1}{-1}{1}
+    \drawCubicleNorthWest[X]{-1}{-0}{1}
+    \drawCubicleNorthWest[X]{+1}{+1}{1}
+    \drawCubicleNorthWest[X]{+0}{+1}{1}
+    \drawCubicleNorthWest[X]{-1}{+1}{1}
+    %
+    \drawCubicleNorthWest[X]{-0}{-1}{0}
+    \drawCubicleNorthWest[X]{+1}{-0}{0}
+    \drawCubicleNorthWest[X]{+1}{+1}{0}
+    \drawCubicleNorthWest[X]{+0}{+0}{0}
+    \drawCubicleNorthWest[X]{-1}{+0}{0}
+    \drawCubicleNorthWest[X]{-0}{+1}{0}
+  \end{scope}%
+  \begin{scope}[z={(+0.5cm,-0.5cm)}]
+    %% BACK
+    \drawCubicleSouthEast[X]{-1}{-1}{2}
+    \drawCubicleSouthEast[X]{-0}{-0}{2}
+    \drawCubicleSouthEast[X]{+1}{+1}{2}
+    %
+    \drawCubicleSouthEast[X]{+0}{-1}{2}
+    \drawCubicleSouthEast[X]{+1}{-0}{2}
+    %
+    \drawCubicleSouthEast[_]{+1}{-1}{2}
+
+    %% MIDDLE
+    \drawCubicleSouthEast[X]{-1}{-1}{1}
+    \drawCubicleSouthEast[X]{-0}{-0}{1}
+    \drawCubicleSouthEast[X]{+1}{+1}{1}
+    %
+    \drawCubicleSouthEast[X]{+0}{-1}{1}
+    \drawCubicleSouthEast[X]{+1}{-0}{1}
+    %
+    \drawCubicleSouthEast[X]{+1}{-1}{1}
+
+    %% FRONT
+    \drawCubicleSouthEast[X]{-1}{-0}{0}
+    \drawCubicleSouthEast[X]{-0}{+1}{0}
+    %
+    \drawCubicleSouthEast[_]{-1}{-1}{0}
+    \drawCubicleSouthEast[X]{+0}{-0}{0}
+    \drawCubicleSouthEast[X]{+1}{+1}{0}
+    %
+    \drawCubicleSouthEast[X]{-0}{-1}{0}
+    \drawCubicleSouthEast[X]{+1}{-0}{0}
+    %
+    \drawCubicleSouthEast[_]{+1}{-1}{0}
+  \end{scope}%
+\end{tikzpicture}%
