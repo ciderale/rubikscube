@@ -5,6 +5,95 @@
 \definecolor{yellow}{RGB}{255,255,0}
 \definecolor{white}{RGB}{255,255,255}
 \definecolor{orange}{RGB}{255,165,0}
+\definecolor{pale}{RGB}{170,170,170}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% X=-1(Left)..1(Right)
+\newcommand{\cubeLeftFace}[1]{
+  \begin{scope}[canvas is yz plane at x=0]
+    % Left face
+    \ifthenelse{\not\equal{#1}{-1}}{\tikzset{left/.style={fill=pale}}}{}
+    \path[draw=black,left] (0,0) rectangle ++(1,1);
+  \end{scope}
+}
+\newcommand{\cubeRightFace}[1]{
+  \begin{scope}[canvas is yz plane at x=1]
+    \ifthenelse{\not\equal{#1}{+1}}{\tikzset{right/.style={fill=pale}}}{}
+    \path[draw=black,right] (0,0) rectangle ++(1,1);
+  \end{scope}
+}
+
+% Y=-1(Bottom)..+1(Top)
+\newcommand{\cubeBottomFace}[1]{
+  \begin{scope}[canvas is xz plane at y=0]
+    \ifthenelse{\not\equal{#1}{-1}}{\tikzset{bottom/.style={fill=pale}}}{}
+    \path[draw=black,bottom] (0,0) rectangle ++(1,1);
+  \end{scope}
+}
+\newcommand{\cubeTopFace}[1]{
+  \begin{scope}[canvas is xz plane at y=1]
+    \ifthenelse{\not\equal{#1}{+1}}{\tikzset{top/.style={fill=pale}}}{}
+    \path[draw=black,top] (0,0) rectangle ++(1,1);
+  \end{scope}
+}
+
+% Z=0(Front)..-2(Back)
+\newcommand{\cubeFrontFace}[1]{
+      \begin{scope}[canvas is xy plane at z=0]
+        % Front face
+        \ifthenelse{\not\equal{#1}{0}}{\tikzset{front/.style={fill=pale}}}{}
+        \path[draw=black,front] (0,0) rectangle ++(1,1);
+      \end{scope}
+}
+\newcommand{\cubeBackFace}[1]{
+      \begin{scope}[canvas is xy plane at z=-1]
+        \ifthenelse{\not\equal{#1}{-2}}{\tikzset{back/.style={fill=pale}}}{}
+        \path[draw=black,back] (0,0) rectangle ++(1,1);
+      \end{scope}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\drawCubicleSouthEast}[4][X]{
+  \ifthenelse{\equal{#1}{X}}{
+    \begin{scope}[shift={(#2,#3,#4)}]
+      %\cubeBackFace{#4}
+      %\cubeTopFace{#3}
+      %\cubeLeftFace{#2}
+      \cubeBottomFace{#3}
+      \cubeRightFace{#2}
+      \cubeFrontFace{#4}
+    \end{scope}
+}{}
+}
+
+\newcommand{\drawCubicleNorthEast}[4][X]{
+  \ifthenelse{\equal{#1}{X}}{
+    \begin{scope}[shift={(#2,#3,#4)}]
+      %\cubeBackFace{#4}
+      %\cubeTopFace{#3}
+      %\cubeLeftFace{#2}
+      \cubeTopFace{#3}
+      \cubeRightFace{#2}
+      \cubeFrontFace{#4}
+    \end{scope}
+}{}
+}
+
+\newcommand{\drawCubicleNorthWest}[4][X]{
+  \ifthenelse{\equal{#1}{X}}{
+    \begin{scope}[shift={(#2,#3,#4)}]
+      %\cubeBackFace{#4}
+      %\cubeBottomFace{#3}
+      %\cubeRightFace{#2}
+      \cubeTopFace{#3}
+      \cubeLeftFace{#2}
+      \cubeFrontFace{#4}
+    \end{scope}
+}{}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Define the function to draw a single cubicle
 \newcommand{\drawcubicle}[5][X]{
