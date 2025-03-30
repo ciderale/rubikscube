@@ -57,15 +57,33 @@
   (1.0,0.5) circle (6.5);
 \end{pgfonlayer}
 
+  % define cube face color in "neutral" position
+  \def\myarray{{{"red","yellow","green"},{"red","white","blue"}}}
   \foreach \i in {0, +1, +2, +3, -2, -1} {
     \path[->] (1.0,0.5) -- ++(180-\i*60:6) node[thick]{\bf \i} coordinate(A);
 
     \begin{scope}[shift={(A)},local bounding box=a]
       \begin{scope}[z={(-0.5cm,+0.5cm)}]
-      \drawCubicleNorthWest[X]{-1}{+1}{0}
+        % Lookup of color rotation
+        \pgfmathsetmacro{\currentcolourA}{\myarray[Mod(\i,2)][Mod(\i+0,3)]}
+        \tikzset{front/.style={fill=\currentcolourA}}
+        \pgfmathsetmacro{\currentcolourB}{\myarray[Mod(\i,2)][Mod(\i+1,3)]}
+        \tikzset{left/.style={fill=\currentcolourB}}
+        \pgfmathsetmacro{\currentcolourC}{\myarray[Mod(\i,2)][Mod(\i+2,3)]}
+        \tikzset{top/.style={fill=\currentcolourC}}
+        % draw the cube
+        \drawCubicleNorthWest[X]{-1}{+1}{0}
       \end{scope}
       \begin{scope}[z={(+0.5cm,-0.5cm)}]
-      \drawCubicleSouthEast[X]{+1}{-1}{0}
+        % Lookup of color rotation
+        \pgfmathsetmacro{\currentcolourA}{\myarray[Mod(\i+1,2)][Mod(\i+0,3)]}
+        \tikzset{front/.style={fill=\currentcolourA}}
+        \pgfmathsetmacro{\currentcolourB}{\myarray[Mod(\i+1,2)][Mod(\i+1,3)]}
+        \tikzset{right/.style={fill=\currentcolourB}}
+        \pgfmathsetmacro{\currentcolourC}{\myarray[Mod(\i+1,2)][Mod(\i+2,3)]}
+        \tikzset{bottom/.style={fill=\currentcolourC}}
+        % draw the cube
+        \drawCubicleSouthEast[X]{+1}{-1}{0}
       \end{scope}
     \end{scope}
 
