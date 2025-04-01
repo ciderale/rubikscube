@@ -178,9 +178,52 @@
 
 {
   %TODO: maybe make that visually too
-\tikzset{default/.style={anchor=north east,text width=1.9cm,yshift=-0.1cm,font=\sffamily\bfseries}}
-\draw (Rot2Start) node[default]{a-b-c-d\\counter\\clockwise};
-\draw (Rot2End) node[default]{red\\yellow\\green\\clockwise};
+%\tikzset{default/.style={anchor=north east,text width=2.5cm,yshift=-0.1cm,font=\sffamily\bfseries}}
+%\draw (Rot2Start) node[default]{counter-clock};
+%\draw (Rot2End) node[default,yshift=-1cm]{clockwise};
+
+\begin{scope}[
+     shift={(-\theradius+1.5,+4.5)},local bounding box=BB,
+     z={(-0.5cm,+0.5cm)},
+     scale=0.8
+]
+  % Lookup of color rotation
+  \pgfmathsetmacro{\i}{2}
+  \pgfmathsetmacro{\currentcolourA}{\myarray[Mod(\i,2)][Mod(\i+0,3)]}
+  \tikzset{front/.style={fill=\currentcolourA}}
+  \pgfmathsetmacro{\currentcolourB}{\myarray[Mod(\i,2)][Mod(\i+1,3)]}
+  \tikzset{left/.style={fill=\currentcolourB}}
+  \pgfmathsetmacro{\currentcolourC}{\myarray[Mod(\i,2)][Mod(\i+2,3)]}
+  \tikzset{top/.style={fill=\currentcolourC}}
+  % draw the cube
+  \drawCubicleNorthWest[X]{-1}{+1}{0}
+
+  \draw[ultrathick,->] (-0.5,1.5) arc[start angle=-45, end angle=-165, radius=0.45];
+  \draw[ultrathick,->] (-0.5,1.5) arc[start angle=-45, end angle=-300, radius=0.45];
+  \draw[ultrathick,->] (-0.5,1.5) arc[start angle=-45, end angle=-405, radius=0.45];
+  \draw (-0.8,0.8) node[font=\sffamily\bfseries]{clockwise};
+\end{scope}
+
+
+\begin{scope}[shift={(-\theradius+0.5,-5.5)},local bounding box=BB]
+  \draw (0,0) coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(2,0) node[arrowlabel]{A} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(0,2) node[arrowlabel]{B} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(-2,0) node[arrowlabel]{C} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(0,-1.6) node[arrowlabel]{D} coordinate(X);
+  %
+  \draw[->,ultrathick] (X) -- ++(1.6,0)  coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(0,1.2)  coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(-1.2,0) coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(0,-0.8) coordinate(X);
+  \draw (1,1) node{\bf +2};
+  \begin{pgfonlayer}{background}
+    \fill[magenta,opacity=0.7] (BB.north west) rectangle (BB.south east);
+  \end{pgfonlayer}
+
+  \draw[ultrathick,->,white] (0.7,0.7) arc[start angle=-135, end angle=+135, radius=0.40];
+  \draw (1,-0.4) node[font=\sffamily\bfseries]{counter-clockwise};
+\end{scope}
 }
 
 
