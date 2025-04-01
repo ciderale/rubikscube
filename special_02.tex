@@ -166,14 +166,21 @@
   node[tiplabel]{$\pm$3};
 
 \draw[ultrathick,shortarrow,bgarrow]
-  ($(rot2.north west) + (0,-0.5)$) --
-  ++(-2,0) |-
-  ($ (rot4.north west) + (0,-1) $);
+  ($(rot2.north west) + (0,-0.5)$) coordinate (Rot2Start) --
+  ++(-2.2,0) |-
+  ($ (rot4.north west) + (0,-1) $) coordinate (Rot2End);
 \draw[ultrathick,shortarrow,fgarrow,->]
   ($(rot2.north west) + (0,-0.5)$) --
-  ++(-2,0) |-
+  ++(-2.2,0) |-
   ($ (rot4.north west) + (0,-1) $)
   node[tiplabel,yshift=-10]{+2};
+}
+
+{
+  %TODO: maybe make that visually too
+\tikzset{default/.style={anchor=north east,text width=1.9cm,yshift=-0.1cm,font=\sffamily\bfseries}}
+\draw (Rot2Start) node[default]{a-b-c-d\\counter\\clockwise};
+\draw (Rot2End) node[default]{red\\yellow\\green\\clockwise};
 }
 
 
