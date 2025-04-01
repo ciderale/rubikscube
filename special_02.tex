@@ -115,7 +115,7 @@
   \draw[->,ultrathick] (X) -- ++(0,-1.8) node[arrowlabel]{D} coordinate(X);
   \draw (1,1) node{\bf +1};
   \begin{pgfonlayer}{background}
-    \fill[orange,opacity=0.5] (BB.north west) rectangle (BB.south east);
+    \fill[magenta,opacity=0.7] (BB.north west) rectangle (BB.south east);
   \end{pgfonlayer}
 \end{scope}
 
@@ -127,21 +127,53 @@
   \draw[->,ultrathick] (X) -- ++(-1.8,0) node[arrowlabel]{C} coordinate(X);
   \draw (1,1) node{\bf -1};
   \begin{pgfonlayer}{background}
-    \fill[orange,opacity=0.5] (BB.north west) rectangle (BB.south east);
+    \fill[orange,opacity=1.0] (BB.north west) rectangle (BB.south east);
   \end{pgfonlayer}
 \end{scope}
 
 {
 \tikzset{shortarrow/.style={shorten >=4, shorten <=4}}
 \tikzset{tiplabel/.style={font=\sffamily\bfseries,anchor=east,xshift=-5}}
-\draw[ultrathick,shortarrow,->] ($(rot5.south east) + (-1,0)$)
-  to[out=-130,in=130,looseness=1] (rot0.north west) node[tiplabel] {+1};
-\draw[ultrathick,shortarrow,->] ($(rot1.south east) + (-1.0,1.5)$)
-  to[out=100,in=-110,looseness=1] ($(rot0.north west) + (+0.4,-1.5)$)
+\tikzset{bgarrow/.style={line width=6,white}}
+\tikzset{fgarrow/.style={line width=2.5,magenta}}
+
+\draw[ultrathick,shortarrow,bgarrow]
+  ($(rot5.south east) + (-1,0)$)
+  to[out=-130,in=130,looseness=1]
+  (rot0.north west);
+\draw[ultrathick,shortarrow,fgarrow,->]
+  ($(rot5.south east) + (-1,0)$)
+  to[out=-130,in=130,looseness=1]
+  (rot0.north west)
+  node[tiplabel] {+1};
+\draw[ultrathick,shortarrow,bgarrow]
+  ($(rot1.south east) + (-1.0,1.5)$)
+  to[out=100,in=-110,looseness=1]
+  ($(rot0.north west) + (+0.4,-1.5)$);
+\draw[ultrathick,shortarrow,fgarrow,->, orange] %override for -1
+  ($(rot1.south east) + (-1.0,1.5)$)
+  to[out=100,in=-110,looseness=1]
+  ($(rot0.north west) + (+0.4,-1.5)$)
   node[tiplabel,yshift=-5]{-1};
-\draw[ultrathick,shortarrow,->] (rot3.south east)
-  to[out=-30,in=-130,looseness=1.4] ($ (rot0.north west) + (0,-1) $)
+\draw[ultrathick,shortarrow,bgarrow]
+  (rot3.south east)
+  to[out=-30,in=-130,looseness=1.4]
+  ($ (rot0.north west) + (0,-1) $);
+\draw[ultrathick,shortarrow,fgarrow,->]
+  (rot3.south east)
+  to[out=-30,in=-130,looseness=1.4]
+  ($ (rot0.north west) + (0,-1) $)
   node[tiplabel]{$\pm$3};
+
+\draw[ultrathick,shortarrow,bgarrow]
+  ($(rot2.north west) + (0,-0.5)$) --
+  ++(-2,0) |-
+  ($ (rot4.north west) + (0,-1) $);
+\draw[ultrathick,shortarrow,fgarrow,->]
+  ($(rot2.north west) + (0,-0.5)$) --
+  ++(-2,0) |-
+  ($ (rot4.north west) + (0,-1) $)
+  node[tiplabel,yshift=-10]{+2};
 }
 
 
