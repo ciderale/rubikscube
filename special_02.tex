@@ -62,9 +62,9 @@
 
 \begin{scope}[shift={(+\theradius+1.5,+4.5)},local bounding box=BB]
   \draw (0,0) coordinate(X);
-  \draw[->,ultrathick] (X) -- ++(2,0) node[arrowlabel]{A} coordinate(X);
-  \draw[->,ultrathick] (X) -- ++(0,2) node[arrowlabel]{B} coordinate(X);
-  \draw[->,ultrathick] (X) -- ++(-2,0) node[arrowlabel]{C} coordinate(X);
+  \draw[>->,ultrathick] (X) -- ++(2,0) node[arrowlabel]{R} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(0,2) node[arrowlabel]{U} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(-2,0) node[arrowlabel]{L} coordinate(X);
   \draw[->,ultrathick] (X) -- ++(0,-1.8) node[arrowlabel]{D} coordinate(X);
   \draw (1,1) node{\bf +1};
   \begin{pgfonlayer}{background}
@@ -74,10 +74,10 @@
 
 \begin{scope}[shift={(+\theradius+1.5,-4.5)},local bounding box=BB]
   \draw (0,0) coordinate(X);
-  \draw[->,ultrathick] (X) -- ++(0,2) node[arrowlabel]{B} coordinate(X);
-  \draw[->,ultrathick] (X) -- ++(2,0) node[arrowlabel]{A} coordinate(X);
+  \draw[>->,ultrathick] (X) -- ++(0,2) node[arrowlabel]{U} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(2,0) node[arrowlabel]{R} coordinate(X);
   \draw[->,ultrathick] (X) -- ++(0,-2) node[arrowlabel]{D} coordinate(X);
-  \draw[->,ultrathick] (X) -- ++(-1.8,0) node[arrowlabel]{C} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(-1.8,0) node[arrowlabel]{L} coordinate(X);
   \draw (1,1) node{\bf -1};
   \begin{pgfonlayer}{background}
     \fill[orange,opacity=1.0] (BB.north west) rectangle (BB.south east);
@@ -160,9 +160,9 @@
 
 \begin{scope}[shift={(-\theradius+0.5,-5.5)},local bounding box=BB]
   \draw (0,0) coordinate(X);
-  \draw[->,ultrathick] (X) -- ++(2,0) node[arrowlabel]{A} coordinate(X);
-  \draw[->,ultrathick] (X) -- ++(0,2) node[arrowlabel]{B} coordinate(X);
-  \draw[->,ultrathick] (X) -- ++(-2,0) node[arrowlabel]{C} coordinate(X);
+  \draw[>->,ultrathick] (X) -- ++(2,0) node[arrowlabel]{R} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(0,2) node[arrowlabel]{U} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(-2,0) node[arrowlabel]{L} coordinate(X);
   \draw[->,ultrathick] (X) -- ++(0,-1.6) node[arrowlabel]{D} coordinate(X);
   %
   \draw[->,ultrathick] (X) -- ++(1.6,0)  coordinate(X);
