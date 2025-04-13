@@ -136,12 +136,14 @@
 %\draw (Rot2End) node[default,yshift=-1cm]{clockwise};
 
 \begin{scope}[
-     shift={(-\theradius+1.5,+4.5)},local bounding box=BB,
+     shift={(-\theradius+1.5,+4.5)},local bounding box=BB, %top
+     %shift={(-\theradius+1.5,-3.45)},local bounding box=BB, %bottom
      z={(-0.5cm,+0.5cm)},
      scale=0.8
 ]
   % Lookup of color rotation
-  \pgfmathsetmacro{\i}{2}
+  \pgfmathsetmacro{\i}{2} %top
+  %\pgfmathsetmacro{\i}{4} %bottom
   \pgfmathsetmacro{\currentcolourA}{\myarray[Mod(\i,2)][Mod(\i+0,3)]}
   \tikzset{front/.style={fill=\currentcolourA}}
   \pgfmathsetmacro{\currentcolourB}{\myarray[Mod(\i,2)][Mod(\i+1,3)]}
