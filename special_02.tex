@@ -9,61 +9,7 @@
   \tikzset{arrowlabel/.style={pos=0.75,draw=black,fill=white,circle,inner sep=0.5pt,font=\sffamily\bfseries}}
   \tikzset{ultrathick/.style={line width=2}}
 
-\begin{scope}
-  [x={(0.9cm,-0.1cm)},y={(0,0.9cm)},z={(0.6cm,0.4cm)},scale=1.1]
-% BACK
-\drawCubicleNorthEast[X]{-1}{-1}{2}
-\drawCubicleNorthEast[X]{-1}{-0}{2}
-\drawCubicleNorthEast[X]{-0}{-1}{2}
-\drawCubicleNorthEast[X]{-1}{+1}{2}
-\drawCubicleNorthEast[X]{-0}{+0}{2}
-\drawCubicleNorthEast[X]{+1}{-1}{2}
-\drawCubicleNorthEast[X]{-0}{+1}{2}
-\drawCubicleNorthEast[X]{+1}{-0}{2}
-\drawCubicleNorthEast[X]{+1}{+1}{2}
-%MIDDLE
-\drawCubicleNorthEast[X]{-1}{-1}{1}
-\drawCubicleNorthEast[X]{-1}{-0}{1}
-\drawCubicleNorthEast[X]{-0}{-1}{1}
-\drawCubicleNorthEast[X]{-1}{+1}{1}
-\drawCubicleNorthEast[X]{-0}{+0}{1}
-\drawCubicleNorthEast[X]{+1}{-1}{1}
-\drawCubicleNorthEast[X]{-0}{+1}{1}
-\drawCubicleNorthEast[X]{+1}{-0}{1}
-\drawCubicleNorthEast[X]{+1}{+1}{1}
-% FRONT
-\drawCubicleNorthEast[X]{-1}{-1}{0}
-\drawCubicleNorthEast[X]{-1}{-0}{0}
-\drawCubicleNorthEast[X]{-0}{-1}{0}
-\drawCubicleNorthEast[X]{-1}{+1}{0}
-\drawCubicleNorthEast[X]{-0}{+0}{0}
-\drawCubicleNorthEast[X]{+1}{-1}{0}
-\drawCubicleNorthEast[X]{-0}{+1}{0}
-\drawCubicleNorthEast[X]{+1}{-0}{0}
-\drawCubicleNorthEast[X]{+1}{+1}{0}
-%% FRONT
-  \begin{scope}[canvas is xz plane at y=2.0]
-    \draw[fill=black, fill opacity=0.5,even odd rule]
-      (0.5,1.5) circle (1.4)
-      (0.5,1.5) circle (1.0)
-    ;
-    \draw (0.5,1.5) node[text=white,fill=black] {\bf turn};
-  \end{scope}
-  \begin{scope}[canvas is yz plane at x=2.0]
-    \draw[fill=black, fill opacity=0.5,even odd rule]
-      (0.5,1.5) circle (1.4)
-      (0.5,1.5) circle (1.0)
-    ;
-    \draw (0.5,1.5) node[text=white,fill=black] {\bf turn};
-  \end{scope}
-  \begin{scope}[canvas is xy plane at z=0]
-    \fill[pattern=checkerboard,opacity=0.5] (-1,-1) rectangle ++(2,2) node[midway,opacity=1,text=white,fill=black]{\bf hold};
-    \draw[->,ultrathick] (-0.5,+1.5+0.2) -- ++(2.0,0) node[arrowlabel]{A};
-    \draw[->,ultrathick] (+1.5+0.2,-0.5) -- ++(0,2.0) node[arrowlabel]{B};
-    \draw[->,ultrathick] (-0.5+2,+1.5-0.2) -- ++(-2.0,0) node[arrowlabel]{C};
-    \draw[->,ultrathick] (+1.5-0.2,-0.5+2) -- ++(0,-2.0) node[arrowlabel]{D};
-  \end{scope}
-\end{scope}
+  \input{special-base}
 
   \draw (1.5,0.5) coordinate(thecenter);
   \def\theradius{6}

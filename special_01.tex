@@ -7,6 +7,8 @@
 
 
 \begin{tikzpicture}
+  \tikzset{ultrathick/.style={line width=2}}
+  \tikzset{arrowlabel/.style={pos=0.75,draw=black,fill=white,circle,inner sep=0.5pt,font=\sffamily\bfseries}}
 
   \newcommand{\base}[1]{
   \begin{scope}[z={(-0.5cm,+0.5cm)}]
@@ -71,9 +73,23 @@
   \end{scope}%
 }
 
+
+\begin{scope}[xshift=0cm]
+  \tikzset{back/.style={fill=green}}
+  \tikzset{front/.style={fill=blue}}
+  \tikzset{right/.style={fill=red}}
+  \tikzset{left/.style={fill=orange}}
+  \tikzset{top/.style={fill=yellow}}
+  \tikzset{bottom/.style={fill=white}}
+
+  \input{special-base}
+\end{scope}
+
+
+
 \tikzset{rotarrow/.style={->, shorten >=4, shorten <=4, line width=2}}
 \tikzset{movarrow/.style={->, line width=2}}
-\begin{scope}[yshift=+3cm]
+\begin{scope}[xshift=-5cm]
   \base{
     \tikzset{left/.style={fill=red}}
     \tikzset{bottom/.style={fill=orange}}
@@ -84,17 +100,19 @@
   \draw[->,rotarrow] (x) -- ++(-1,-1) coordinate(x);
   \draw[->,rotarrow] (x) -- ++(-1,1) coordinate(x);
 
-  \path (2,2) coordinate (x);
-  \draw[movarrow,>->] (x) -- ++(0,+1) coordinate(x);
-  \draw[movarrow] (x) -- ++(1,+0) coordinate(x);
-  \draw[movarrow] (x) -- ++(0,-1) coordinate(x);
-  \draw[movarrow] (x) -- ++(+1,0) coordinate(x);
-  \draw[movarrow] (x) -- ++(0,+1.2) coordinate(x);
-  \draw[movarrow] (x) -- ++(-2.2,0) coordinate(x);
-  \draw[movarrow] (x) -- ++(0,-1.1) coordinate(x);
+  \begin{scope}[xshift=1.5cm,yshift=+3cm,scale=1.7]
+  \path (0.1,0) coordinate (x);
+    \draw[movarrow,>->] (x) -- ++(0,+0.9) coordinate(x) node[arrowlabel]{B};
+    \draw[movarrow] (x) -- ++(+0.9,+0) coordinate(x) node[arrowlabel]{A};
+    \draw[movarrow] (x) -- ++(0,-0.9) coordinate(x) node[arrowlabel]{D};
+    \draw[movarrow] (x) -- ++(+0.9,0) coordinate(x) node[arrowlabel]{A};
+    \draw[movarrow] (x) -- ++(0,+1.1) coordinate(x) node[arrowlabel]{B};
+    \draw[movarrow] (x) -- ++(-2,0) coordinate(x) node[arrowlabel]{C};
+    \draw[movarrow] (x) -- ++(0,-1.1) coordinate(x) node[arrowlabel]{D};
+  \end{scope}
 
 \end{scope}
-\begin{scope}[yshift=-3cm]
+\begin{scope}[xshift=+7cm]
   \base{
     \tikzset{left/.style={fill=blue}}
     \tikzset{bottom/.style={fill=red}}
@@ -105,22 +123,24 @@
   \draw[->,rotarrow] (x) -- ++(1,+1) coordinate(x);
   \draw[->,rotarrow] (x) -- ++(-2,0) coordinate(x) node[midway,above]{\bf counter-clockwise};
 
-  \path (2,2) coordinate (x);
-  \draw[movarrow,>->] (x) -- ++(0,+1) coordinate(x);
-  \draw[movarrow] (x) -- ++(2,+0) coordinate(x);
-  \draw[movarrow] (x) -- ++(0,-1) coordinate(x);
-  \draw[movarrow] (x) -- ++(-1,0) coordinate(x);
-  \draw[movarrow] (x) -- ++(0,+0.8) coordinate(x);
-  \draw[movarrow] (x) -- ++(-0.8,0) coordinate(x);
-  \draw[movarrow] (x) -- ++(0,-0.7) coordinate(x);
+  \begin{scope}[xshift=-4cm,yshift=-3cm,scale=1.7]
+  \path (-0.1,0) coordinate (x);
+    \draw[movarrow,>->] (x) -- ++(0,+1.1) coordinate(x) node[arrowlabel]{B};
+    \draw[movarrow,movarrow] (x) -- ++(2,+0) coordinate(x) node[arrowlabel]{A};
+    \draw[movarrow] (x) -- ++(0,-1.1) coordinate(x) node[arrowlabel]{D};
+    \draw[movarrow] (x) -- ++(-0.9,0) coordinate(x) node[arrowlabel]{C};
+    \draw[movarrow] (x) -- ++(-0,+0.9) coordinate(x) node[arrowlabel]{B};
+    \draw[movarrow] (x) -- ++(-0.9,0) coordinate(x) node[arrowlabel]{C};
+    \draw[movarrow] (x) -- ++(-0,-0.9) coordinate(x) node[arrowlabel]{D};
+  \end{scope}
 
 \end{scope}
-\begin{scope}[xshift=7cm]
-  \base{
-    \tikzset{left/.style={fill=orange}}
-    \tikzset{bottom/.style={fill=blue}}
-    \tikzset{right/.style={fill=red}}
-  }
-\end{scope}
+%\begin{scope}[xshift=7cm]
+%  \base{
+%    \tikzset{left/.style={fill=orange}}
+%    \tikzset{bottom/.style={fill=blue}}
+%    \tikzset{right/.style={fill=red}}
+%  }
+%\end{scope}
 
 \end{tikzpicture}%
