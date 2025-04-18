@@ -116,11 +116,11 @@
   ($(rot0.north west) + (+0.4,-1.5)$)
   node[tiplabel,yshift=-5]{-1};
 \draw[ultrathick,shortarrow,bgarrow]
-  (rot3.south east)
+  ($(rot3.south east) + (0,0.5)$)
   to[out=-30,in=-130,looseness=1.4]
   ($ (rot0.north west) + (0,-1) $);
-\draw[ultrathick,shortarrow,fgarrow,->]
-  (rot3.south east)
+\draw[ultrathick,shortarrow,fgarrow,->,dotted]
+  ($(rot3.south east) + (0,0.5)$)
   to[out=-30,in=-130,looseness=1.4]
   ($ (rot0.north west) + (0,-1) $)
   node[tiplabel]{$\pm$3};
