@@ -1,0 +1,109 @@
+\documentclass[a4paper]{article}
+%
+\usepackage{geometry}
+\usepackage{tikz}
+\usetikzlibrary{3d}
+\usetikzlibrary{patterns}
+\usepackage{ifthen}
+\usetikzlibrary{backgrounds,fit}
+\usetikzlibrary{calc}
+
+\geometry{margin=2cm}
+
+\input{definitions.tex}
+
+\title{Alain's Rubik's Methods}
+\author{Alain Lehmann}
+
+\begin{document}
+
+\maketitle
+%\tableofcontents
+
+\raggedright
+\section{Mnemonics}
+\centering
+
+\begin{tikzpicture}
+\tikzset{arrowlabel/.style={pos=0.75,draw=black,fill=white,circle,inner sep=0.5pt,font=\sffamily\bfseries}}
+\tikzset{ultrathick/.style={line width=2}}
+\begin{scope}[local bounding box=BB,scale=1.5]
+  \draw (0,0) coordinate(X);
+  \draw[>->,ultrathick] (X) -- ++(2,0) node[arrowlabel]{R} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(0,2) node[arrowlabel]{U} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(-2,0) node[arrowlabel]{L} coordinate(X);
+  \draw[->,ultrathick] (X) -- ++(0,-1.8) node[arrowlabel]{D} coordinate(X);
+  \draw (1,1) node{\bf +1};
+  \begin{pgfonlayer}{background}
+    \fill[magenta,opacity=0.7] (BB.north west) rectangle (BB.south east);
+  \end{pgfonlayer}
+\end{scope}
+\end{tikzpicture}%
+%
+\begin{tikzpicture}
+\tikzset{top/.style={fill=green}}
+\tikzset{bottom/.style={fill=blue}}
+\tikzset{right/.style={fill=red}}
+\tikzset{left/.style={fill=orange}}
+\tikzset{front/.style={fill=yellow}}
+\tikzset{back/.style={fill=white}}
+\tikzset{ultrathick/.style={line width=2}}
+\tikzset{arrowlabel/.style={pos=0.75,draw=black,fill=white,circle,inner sep=0.5pt,font=\sffamily\bfseries}}
+\input{special_base.tex}
+\end{tikzpicture}%
+%
+\begin{tikzpicture}
+  \tikzset{ultrathick/.style={line width=2}}
+  \tikzset{arrowlabel/.style={pos=0.75,draw=black,fill=white,circle,inner sep=0.5pt,font=\sffamily\bfseries}}
+  \tikzset{rotarrow/.style={->, shorten >=4, shorten <=4, line width=2}}
+  \tikzset{movarrow/.style={->, line width=2}}
+
+  \begin{scope}[scale=3.0,local bounding box=BB]
+  \path (0.1,0) coordinate (x);
+    \draw[movarrow,>->] (x) -- ++(0,+0.9) coordinate(x) node[arrowlabel]{U};
+    \draw[movarrow] (x) -- ++(+0.9,+0) coordinate(x) node[arrowlabel]{R};
+    \draw[movarrow] (x) -- ++(0,-0.9) coordinate(x) node[arrowlabel]{D};
+    \draw[movarrow] (x) -- ++(+0.9,0) coordinate(x) node[arrowlabel]{R};
+    \draw[movarrow] (x) -- ++(0,+1.1) coordinate(x) node[arrowlabel]{U};
+    \draw[movarrow] (x) -- ++(-2,0) coordinate(x) node[arrowlabel]{L};
+    \draw[movarrow] (x) -- ++(0,-1.1) coordinate(x) node[arrowlabel]{D};
+    \begin{pgfonlayer}{background}
+      \fill[magenta,opacity=0.7] (BB.north west) rectangle (BB.south east);
+    \end{pgfonlayer}
+  \end{scope}
+\end{tikzpicture}
+
+\raggedright
+\section{Solution process}
+\centering
+
+\tikzset{front/.style={fill=red}}
+\tikzset{top/.style={fill=white}}
+\tikzset{right/.style={fill=blue}}
+\input{00_initial.tex}%
+\input{01_top_cross.tex}%
+\input{02_top_layer.tex}%
+
+\tikzset{front/.style={fill=blue}}
+\tikzset{top/.style={fill=yellow}}
+\tikzset{right/.style={fill=red}}
+\input{03_top_layer_upside_down.tex}%
+\input{04_middle_cross.tex}%
+\input{05_top_cross_almost.tex}%
+
+\input{06_top_cross.tex}%
+\tikzset{front/.style={fill=red}}
+\tikzset{top/.style={fill=green}}
+\tikzset{right/.style={fill=white}}
+\input{07_top_cross_rotated.tex}%
+\input{08_final.tex}%
+
+\raggedright
+\section{Top Cross Rotation \& Solving Corners}
+\centering
+
+\input{special_01.tex}
+
+\input{special_02.tex}
+
+\end{document}

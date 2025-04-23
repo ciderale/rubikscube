@@ -29,7 +29,7 @@
           scripts.build.exec = ''
             OUTDIR=./out
             mkdir -p "$OUTDIR"
-            for i in overview.tex algorithms.tex; do
+            for i in rubikscube.tex overview.tex algorithms.tex; do
               pdflatex --output-dir="$OUTDIR" "$i"
             done
           '';
