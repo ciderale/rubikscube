@@ -26,6 +26,13 @@
           documentation.nix-discover.package-search.enable = true;
           languages.texlive.enable = true;
           languages.texlive.packages = ["standalone" "varwidth"];
+          scripts.build.exec = ''
+            OUTDIR=./out
+            mkdir -p "$OUTDIR"
+            for i in overview.tex algorithms.tex; do
+              pdflatex --output-dir="$OUTDIR" "$i"
+            done
+          '';
         };
       };
     };
